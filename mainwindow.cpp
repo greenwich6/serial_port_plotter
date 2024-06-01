@@ -152,7 +152,7 @@ void MainWindow::createUI()
     ui->comboBaud->addItem ("921600");
 
     /* Select 115200 bits by default */
-    ui->comboBaud->setCurrentIndex (7);
+    ui->comboBaud->setCurrentIndex (11);
 
     /* Populate data bits combo box */
     ui->comboData->addItem ("8 bits");
@@ -214,10 +214,10 @@ void MainWindow::setupPlot()
     ui->plot->yAxis->setTickLabelColor (gui_colors[2]);
     ui->plot->yAxis->setTickLabelFont (font);
     /* Range */
-    //ui->plot->yAxis->setRange (ui->spinAxesMin->value(), ui->spinAxesMax->value());
+    ui->plot->yAxis->setRange (ui->spinAxesMin->value(), ui->spinAxesMax->value());
     /* User can change Y axis tick step with a spin box */
-    //ui->plot->yAxis->setAutoTickStep (false);
-    //ui->plot->yAxis->(ui->spinYStep->value());
+//    ui->plot->yAxis->setAutoTickStep (false);
+//    ui->plot->yAxis->(ui->spinYStep->value());
 
     /* User interactions Drag and Zoom are allowed only on X axis, Y is fixed manually by UI control */
     ui->plot->setInteraction (QCP::iRangeDrag, true);
@@ -236,6 +236,7 @@ void MainWindow::setupPlot()
     ui->plot->legend->setBorderPen (gui_colors[2]);
     /* By default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement */
     ui->plot->axisRect()->insetLayout()->setInsetAlignment (0, Qt::AlignTop|Qt::AlignRight);
+    ui->plot->replot();
 }
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 

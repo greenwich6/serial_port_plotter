@@ -1,0 +1,2 @@
+cd D:\GitHub\build-SerialPortPlotter-Desktop_Qt_5_15_2_MinGW_64_bit-Release\release
+windeployqt.exe serial_port_plotter.exe
